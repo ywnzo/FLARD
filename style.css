@@ -15,7 +15,7 @@ body {
     padding: 0px;
     margin: 0px;
     height: 100%;
-    overflow: hidden;
+    width: 100%;
 }
 
 body {
@@ -124,15 +124,12 @@ input[type="password"] {
     outline: none;
     border-radius: 8px;
     text-align: center;
-    font: inherit;
     font-size: x-large;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
     color: #481620;
     background-color: var(--btn-main);
     user-select: none;
-    transition: all;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in;
+    transition: all 0.3s ease-in;
 }
 .btn-main:hover,
 .btn-main-invert,
@@ -143,20 +140,19 @@ input[type="submit"]:hover {
 }
 
 .btn-back {
-    height: 2.5rem;
+    height: 100%;
+    min-width: 46px;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: xx-large;
     font-weight: bold;
     background-color: var(--btn-main);
     color: var(--background-darker);
-    padding: 0rem 0.5rem;
     border-radius: 8px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
-    transition: all;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
-
+    transition: all 0.2s ease-in;
     user-select: none;
 }
 .btn-back:hover {
@@ -184,6 +180,8 @@ input[type="submit"]:hover {
 }
 
 .btn-main-invert {
+    min-height: 46px;
+    aspect-ratio: 1/1;
     background-color: var(--background-darker);
     color: var(--btn-main);
 }
@@ -325,10 +323,10 @@ input[type="submit"]:hover {
 .content-wrapper {
     /* padding-left: 16rem; */
     width: 90%;
-    min-width: 480px;
+    min-width: 320px;
     height: 90%;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .title-main {
@@ -362,7 +360,7 @@ input[type="submit"]:hover {
 }
 
 .list-wrapper {
-    height: 80%;
+    height: 100%;
     /* width: 90%; */
     overflow-y: scroll;
     overflow-x: hidden;
@@ -378,12 +376,12 @@ input[type="submit"]:hover {
     display: none;
 }
 #link-list {
-    width: 100% - 3rem;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 1.5rem;
-    padding: 3rem;
+    gap: 1rem;
+    padding: 1rem;
     border-radius: 16px;
+    transition: all 0.3s ease-in;
 }
 
 .link-wrapper,
@@ -425,9 +423,7 @@ input[type="submit"]:hover {
     text-wrap: wrap;
     color: var(--background-darker);
     user-select: none;
-    transition: all;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
+    transition: all 0.3s ease-in;
 }
 .link:hover {
     color: var(--btn-main);
@@ -459,12 +455,14 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     gap: 16px;
+    transition: all 0.5s;
 }
 #controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px;
+    gap: 8px;
+    transition: all 0.5s;
 }
 .btn-controls {
     width: 100%;
@@ -475,6 +473,7 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    transition: all 0.5s;
 }
 #btn-create {
     width: 100%;
@@ -530,9 +529,6 @@ input[type="submit"]:hover {
     gap: 4rem;
     background-color: transparent;
     perspective: 1000px;
-    /* transition: all;
-    transition-duration: 0.5s; */
-    /* transition-timing-function: ease-in; */
 }
 .card-wrapper:hover {
     cursor: pointer;
@@ -593,13 +589,13 @@ input[type="submit"]:hover {
 
 #flash-wrapper {
     width: 100%;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 5rem 0rem;
     gap: 2rem;
+    padding: 4rem 0rem;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 16px;
 }
@@ -608,7 +604,7 @@ input[type="submit"]:hover {
     display: none;
 }
 #index-btn-wrapper {
-    width: 330px;
+    width: 50%;
     height: 52px;
     justify-content: start;
     overflow: scroll;
@@ -616,6 +612,10 @@ input[type="submit"]:hover {
     border-radius: 8px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+#btn-forward, #btn-backward {
+    min-height: 100%;
+    min-width: 100%;
 }
 .index-btn,
 .index-btn-active {
@@ -648,28 +648,20 @@ input[type="submit"]:hover {
 }
 
 .btn-control-wrapper {
-    min-width: 10rem;
-    max-width: 15rem;
-    width: 176px;
-    height: 2.5rem;
+    min-width: 52px;
+    height: 52px;
+    display: flex
 }
 
 @keyframes wiggle {
-    0% {
-        rotate: 0deg;
-    }
-    25% {
-        rotate: -1deg;
-    }
-    80% {
-        rotate: 1deg;
-    }
+    0% { rotate: 0deg; }
+    25% { rotate: -1deg; }
+    80% { rotate: 1deg; }
 }
 .wiggle {
     animation: wiggle 0.1s infinite;
 }
 
-/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .menu {
         display: none;
@@ -691,7 +683,6 @@ input[type="submit"]:hover {
     }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .menu {
         display: none;
@@ -710,11 +701,13 @@ input[type="submit"]:hover {
     }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
     #info {
         display: flex;
+    }
+    #link-list {
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
     #controls {
         flex-direction: row-reverse;
@@ -731,24 +724,32 @@ input[type="submit"]:hover {
     }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     #link-list {
         grid-template-columns: repeat(3, 1fr);
-    }
 
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    #link-list {
-        grid-template-columns: repeat(4, 1fr);
     }
     #screen-title {
         display: flex;
     }
+    .card-text {
+        font-size: xx-large;
+    }
+    #index-btn-wrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #link-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     #set-name-input {
         width: 50%;
+    }
+    #index-btn-wrapper {
+        width: 30%;
     }
 }
 

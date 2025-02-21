@@ -7,6 +7,6 @@
     <input type="text" name="username" placeholder="Username" value="<?php echo $username ?>">
     <input type="email" name="email" placeholder="Email" value="<?php echo $email ?>">
     <input type="password" name="password" placeholder="Password" value="<?php echo $password ?>">
-    <span class="text-error"> <?php echo $err ?> </span>
-    <input style="width: 12rem;" type="submit" value="Register" class="btn-main">
+    <span class="text-error"> <?php echo $errRegister ?> </span>
+    <input style="min-width: 12rem; max-width: 12rem;" type="submit" value="Register" class="btn-main">
 </form>

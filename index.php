@@ -31,14 +31,7 @@ if(!$authOK) {
                     <?php include('components/auth/login_form.php'); ?>
                     <?php include('components/auth/register_form.php'); ?>
                 </div>
-
-               <!-- <div class="row" style="justify-content: center;">
-                    <img class="landing-page-img" src="public/landing_page/sets.png" alt="">
-                    <img class="landing-page-img" src="public/landing_page/cards.png" alt="">
-                    <img class="landing-page-img" src="public/landing_page/flash.png" alt="">
-                    </div> -->
             </div>
-
         <?php else: ?>
             <div class="row">
                 <div class="spacer-row">
@@ -46,7 +39,7 @@ if(!$authOK) {
                         <div class="heart">
                             <h1>&hearts;</h1>
                         </div>
-                        <h1>Welcome back </h1>
+                        <h1 id="screen-title">Welcome back </h1>
                         <h1 style="color: var(--btn-main);"><?php echo $user['name'] ?></h1>
                     </div>
                     <a href="logout.php" class="btn-main-invert" title="Logout...">

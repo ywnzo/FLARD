@@ -32,7 +32,8 @@ function send_email($userID, $username, $email) {
 }
 
 $username = $email = $password = '';
-$err = '';
+$errLogin = '';
+$errRegister = '';
 $canProcceed = true;
 
 if(isset($_POST['username'])) {
@@ -41,11 +42,11 @@ if(isset($_POST['username'])) {
     $password = test_input($_POST['password']);
 
     if( empty($email)) {
-        $err = 'Enter a valid email!';
+        $errRegister = 'Enter a valid email!';
         $canProcceed = false;
     } else {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $err = 'Enter a valid email!';
+            $errRegister = 'Enter a valid email!';
             $canProcceed = false;
         }
 
@@ -53,17 +54,17 @@ if(isset($_POST['username'])) {
         $result = mysqli_query($conn, $sql);
         $result = mysqli_fetch_assoc($result);
         if($result && $result['email'] === $email) {
-            $err = 'Email already exists!';
+            $errRegister = 'Email already exists!';
             $canProcceed = false;
         }
     }
 
     if( empty($username)) {
-        $err = 'Enter valid username!';
+        $errRegister = 'Enter valid username!';
         $canProcceed = false;
     } else {
         if(!preg_match("/^[a-zA-Z-']*$/", $username)) {
-            $err = 'Enter valid username!';
+            $errRegister = 'Enter valid username!';
             $canProcceed = false;
         }
 
@@ -71,13 +72,13 @@ if(isset($_POST['username'])) {
         $result = mysqli_query($conn, $sql);
         $result = mysqli_fetch_assoc($result);
         if($result && $result['username'] === $username) {
-            $err = 'Username already exists!';
+            $errRegister = 'Username already exists!';
             $canProcceed = false;
         }
     }
 
     if( empty($password)) {
-        $err = 'Enter a valid password!';
+        $errRegister = 'Enter a valid password!';
         $canProcceed = false;
     }
 
@@ -91,11 +92,11 @@ if(isset($_POST['username'])) {
         $password = test_input($_POST['password']);
 
         if( empty($email)) {
-            $err = 'Enter a valid email!';
+            $errLogin = 'Enter a valid email!';
             $canProcceed = false;
         }
         if( empty($password)) {
-            $err = 'Enter a valid password!';
+            $errLogin = 'Enter a valid password!';
             $canProcceed = false;
         }
 
@@ -105,7 +106,7 @@ if(isset($_POST['username'])) {
             $result = mysqli_fetch_assoc($result);
 
             if(!$result) {
-                $err = 'User not found!';
+                $errLogin = 'User not found!';
             } else {
                 $passwordMatch = password_verify($password, $result['password']);
                 if($passwordMatch) {
@@ -119,7 +120,7 @@ if(isset($_POST['username'])) {
                     setcookie('userID', $userID, time() + (86400 * 30), "/");
                     header('Location: ' . 'index.php');
                 } else {
-                    $err = 'Incorrect password!';
+                    $errLogin = 'Incorrect password!';
                 }
             }
         }

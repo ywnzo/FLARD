@@ -41,17 +41,14 @@ $set = DB::select('name', 'cardSets', "ID = '$setID'");
             </div>
         </template>
 
-
-        <div class="column" id="flash-column" style="flex-direction: column-reverse;">
-            <div class="column" style="align-items: center;">
+        <div class="column" id="flash-column">
+            <div class="row" style="align-items: center; justify-content: center;">
+                <div class="btn-control-wrapper" style="justify-content: end;">
+                    <button class="btn-main-invert btn-back" id="btn-backward">&larr;</button>
+                </div>
                 <div class="row center" id="index-btn-wrapper"></div>
-                <div class="row center">
-                    <div class="btn-control-wrapper">
-                        <button class="btn-main-invert btn-back" id="btn-backward">&larr;</button>
-                    </div>
-                    <div class="btn-control-wrapper">
-                        <button class="btn-main-invert btn-back" id="btn-forward">&rarr;</button>
-                    </div>
+                <div class="btn-control-wrapper">
+                    <button class="btn-main-invert btn-back" id="btn-forward">&rarr;</button>
                 </div>
             </div>
         </div>

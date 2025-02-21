@@ -1,7 +1,7 @@
 <div class="row" style="width: auto;">
     <div class="row" style="gap: 0px;">
         <i id="search-icon" class="fa fa-search" aria-hidden="true"></i>
-        <input id="search-bar" type="text">
+        <input id="search-bar" type="text" >
     </div>
     <div>
         <div class="row">
