@@ -13,6 +13,10 @@ if(isset($_GET['url'])) {
     }
 }
 
+if(!$authOK) {
+    include('auth.php');
+}
+
 ?>
 
 <?php include('components/menu.php') ?>
@@ -20,15 +24,21 @@ if(isset($_GET['url'])) {
 <div class="site">
     <div class="column content-wrapper">
         <?php if(!$authOK): ?>
-            <div style="margin-top: 4%;">
-                <h1 class="title-main" style="text-align: center;">FLARD</h1>
-                <!-- <h2>Create flash cards!</h2> -->
-                <div class="row" style="justify-content: center;">
-                    <a href="auth.php?method=login" class="btn-main">Login</a>
-                    <a href="auth.php?method=register" class="btn-main">Register</a>
+            <div style="">
+                <h1 class="title-main">FLARD</h1>
+                <h2 style="margin-bottom: 2rem;">Create, manage and share flash cards...</h2>
+                <div class="row" style="justify-content: center; height: 80%">
+                    <?php include('components/auth/login_form.php'); ?>
+                    <?php include('components/auth/register_form.php'); ?>
                 </div>
+
+               <!-- <div class="row" style="justify-content: center;">
+                    <img class="landing-page-img" src="public/landing_page/sets.png" alt="">
+                    <img class="landing-page-img" src="public/landing_page/cards.png" alt="">
+                    <img class="landing-page-img" src="public/landing_page/flash.png" alt="">
+                    </div> -->
             </div>
-            
+
         <?php else: ?>
             <div class="row">
                 <div class="spacer-row">

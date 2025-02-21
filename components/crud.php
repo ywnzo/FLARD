@@ -8,7 +8,7 @@ function update() {
     $params = $_POST['params'];
 
     $result = DB::update($table, $vals, $params);
-    if($result) {
+    if(!$result) {
         echo "Update succesfull!";
     } else {
         echo "Error while updating!";
@@ -20,7 +20,7 @@ function delete() {
     $params = $_POST['params'];
 
     $result = DB::delete($table, $params);
-    if($result) {
+    if(!$result) {
         echo "Delete succesfull!";
     } else {
         echo "Error while deleting!";
@@ -36,7 +36,7 @@ function select() {
     if($result) {
         echo json_encode($result);
     } else {
-        echo "Error while deleting!";
+        echo "Error while retrieving!";
     }
 }
 

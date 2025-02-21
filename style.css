@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Galindo&family=Oldenburg&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Galindo&family=Oldenburg&display=swap");
 
 :root {
-    --background: #574B60;
+    --background: #574b60;
     --background-darker: hsl(274, 12%, 20%);
-    --accents: #EAF0CE;
+    --accents: #eaf0ce;
     /* --btn-main: #F18805; */
-    --btn-main: #FF1053;
+    --btn-main: #ff1053;
     --wrapper-active: rgba(220, 20, 60, 1);
     --wrapper-inactive: rgba(0, 0, 0, 0.4);
 }
 
-html, body {
+html,
+body {
     padding: 0px;
     margin: 0px;
     height: 100%;
@@ -26,7 +27,9 @@ body {
     color: white;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     padding: 0px;
     margin: 0px;
 }
@@ -50,14 +53,34 @@ form {
     gap: 1rem;
 }
 
-input[type='text'], input[type='email'], input[type='password'] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     all: unset;
-    padding: 0.5rem 1rem;
     width: 90%;
     height: 1.4rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
     background-color: var(--background-darker);
     color: white;
     border-radius: 8px;
+}
+#search-bar {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding-left: 0px;
+}
+#search-icon {
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.6rem;
+    background-color: var(--background-darker);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    color: #a19ea4;
+    color: var(--btn-main);
 }
 
 .text-error {
@@ -90,7 +113,8 @@ input[type='text'], input[type='email'], input[type='password'] {
     justify-content: center;
 }
 
-.btn-main, .btn-main-invert{
+.btn-main,
+.btn-main-invert {
     all: unset;
     min-height: 38.4px;
     min-width: 38.4px;
@@ -110,7 +134,9 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition-duration: 300ms;
     transition-timing-function: ease-in;
 }
-.btn-main:hover, .btn-main-invert, input[type='submit']:hover {
+.btn-main:hover,
+.btn-main-invert,
+input[type="submit"]:hover {
     cursor: pointer;
     background-color: var(--background-darker);
     color: var(--btn-main);
@@ -138,6 +164,13 @@ input[type='text'], input[type='email'], input[type='password'] {
     background-color: var(--background-darker);
     color: var(--btn-main);
 }
+
+.landing-page-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
 .heart {
     height: 2.5rem;
     display: flex;
@@ -196,7 +229,6 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition: all;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-
 }
 
 .menu-btn {
@@ -209,13 +241,10 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition: all;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-
-    
 }
 .menu-btn img:hover {
     scale: 1.2;
 }
-
 
 #menu-user {
     display: flex;
@@ -233,7 +262,6 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition: all;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-
 }
 .user-image-menu:hover {
     scale: 1.1;
@@ -249,7 +277,7 @@ input[type='text'], input[type='email'], input[type='password'] {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0rem
+    gap: 0rem;
 }
 
 #site-logo-wrapper {
@@ -259,9 +287,8 @@ input[type='text'], input[type='email'], input[type='password'] {
     text-align: center;
     box-shadow: none;
     background-color: transparent;
-
 }
-#site-logo-wrapper:hover > #site-logo{
+#site-logo-wrapper:hover > #site-logo {
     scale: 1.05;
 }
 #site-logo {
@@ -269,7 +296,6 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition: all;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-
 }
 #site-title {
     width: 100%;
@@ -299,16 +325,21 @@ input[type='text'], input[type='email'], input[type='password'] {
 .content-wrapper {
     /* padding-left: 16rem; */
     width: 90%;
+    min-width: 480px;
     height: 90%;
     display: flex;
     gap: 1rem;
 }
 
 .title-main {
-    font-size: 12rem;
+    font-size: 6rem;
     text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-    color: var(--accents);
+    color: var(--btn-main);
+}
 
+#screen-title {
+    text-wrap: none;
+    word-wrap: none;
 }
 
 #sort-select {
@@ -335,47 +366,51 @@ input[type='text'], input[type='email'], input[type='password'] {
     /* width: 90%; */
     overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-width: none; 
+    scrollbar-width: none;
     -ms-overflow-style: none;
     border-radius: 16px;
     background-color: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.4);
     transition: all;
     transition-duration: 300ms;
-
 }
-.list-wrapper::-webkit-scrollbar { 
+.list-wrapper::-webkit-scrollbar {
     display: none;
 }
-#set-list, #card-list {
+#link-list {
     width: 100% - 3rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
     padding: 3rem;
     border-radius: 16px;
 }
 
-.link-wrapper {
+.link-wrapper,
+.link-wrapper-own {
     display: flex;
     justify-content: center;
     align-items: center;
     /* width: 256px; */
     height: 180px;
     border-radius: 8px;
-    background-color: #C0C5C1;
+    background-color: #c0c5c1;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
     transition: all;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-
-
 }
-.link-wrapper:hover {
+.link-wrapper {
+    background-color: green;
+}
+.link-wrapper:hover,
+.link-wrapper-own:hover {
     cursor: pointer;
     background-color: var(--background);
 }
-.link {
+
+.link,
+.link-own {
     all: unset;
     width: 90%;
     height: 90%;
@@ -393,8 +428,6 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition: all;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-
-
 }
 .link:hover {
     color: var(--btn-main);
@@ -402,6 +435,7 @@ input[type='text'], input[type='email'], input[type='password'] {
 
 #set-name-input {
     all: unset;
+    width: 80%;
     font-size: xx-large;
     color: var(--btn-main);
     background-color: rgba(0, 0, 0, 0.2);
@@ -412,16 +446,50 @@ input[type='text'], input[type='email'], input[type='password'] {
 #card-create-wrapper {
     width: 90%;
 }
-#card-front-input, #card-back-input {
+#card-front-input,
+#card-back-input {
     width: 50%;
 }
 #card-create-btn {
     width: 25%;
 }
+#info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+.btn-controls {
+    width: 100%;
+}
+#card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+#btn-create {
+    width: 100%;
+}
 
-
-#text-back, #text-front {
+.input-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+#text-back,
+#text-front {
+    width: 100%;
     font-size: medium;
+    padding: 0.5rem 1rem;
 }
 
 #input-options {
@@ -452,10 +520,11 @@ input[type='text'], input[type='email'], input[type='password'] {
     cursor: pointer;
 }
 
-
 .card-wrapper {
-    width: 980px;
-    height: 480px;
+    max-width: 980px;
+    width: 90%;
+    aspect-ratio: 16/9;
+    height: auto;
     display: none;
     flex-direction: column;
     gap: 4rem;
@@ -480,7 +549,11 @@ input[type='text'], input[type='email'], input[type='password'] {
     transform-style: preserve-3d;
 }
 
-.card-front, .card-back, .card-front-edit, .card-back-edit {
+
+.card-front,
+.card-back,
+.card-front-edit,
+.card-back-edit {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -496,20 +569,26 @@ input[type='text'], input[type='email'], input[type='password'] {
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-.card-front, .card-front-edit {
-    background-color: #0075A2;
-    
+.card-front,
+.card-front-edit {
+    background-color: #0075a2;
 }
-.card-back, .card-back-edit {
+.card-back,
+.card-back-edit {
     transform: rotateY(180deg);
-    background-color: #D55672;
-
+    background-color: #d55672;
 }
 
-.card-front p, .card-back p, .card-front-edit p, .card-back-edit p {
+.card-front p,
+.card-back p,
+.card-front-edit p,
+.card-back-edit p {
     width: 90%;
     text-wrap: wrap;
     text-align: center;
+}
+.card-text {
+    font-size: medium;
 }
 
 #flash-wrapper {
@@ -538,7 +617,8 @@ input[type='text'], input[type='email'], input[type='password'] {
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
-.index-btn, .index-btn-active {
+.index-btn,
+.index-btn-active {
     /* all: unset; */
     min-width: 3rem;
     min-height: 3rem;
@@ -553,7 +633,8 @@ input[type='text'], input[type='email'], input[type='password'] {
     transition-timing-function: ease-in;
     user-select: none;
 }
-.index-btn:hover, .index-btn-active:hover {
+.index-btn:hover,
+.index-btn-active:hover {
     cursor: pointer;
     color: var(--btn-main);
     background-color: var(--background-darker);
@@ -564,7 +645,6 @@ input[type='text'], input[type='email'], input[type='password'] {
 }
 .index-btn-active:hover {
     border: 2px solid var(--btn-main);
-
 }
 
 .btn-control-wrapper {
@@ -575,11 +655,105 @@ input[type='text'], input[type='email'], input[type='password'] {
 }
 
 @keyframes wiggle {
-    0% { rotate: 0deg; }
-    25% { rotate: -1deg; }
-    80% { rotate: 1deg; }
-
+    0% {
+        rotate: 0deg;
+    }
+    25% {
+        rotate: -1deg;
+    }
+    80% {
+        rotate: 1deg;
+    }
 }
 .wiggle {
     animation: wiggle 0.1s infinite;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .menu {
+        display: none;
+    }
+    #link-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #screen-title {
+        display: none;
+    }
+    #controls {
+        flex-direction: column;
+    }
+    #set-name-input {
+        width: 80%;
+    }
+    #info {
+        display: none;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .menu {
+        display: none;
+    }
+    #link-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #screen-title {
+        display: none;
+    }
+    #controls {
+        flex-direction: column;
+    }
+    #info {
+        display: none;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    #info {
+        display: flex;
+    }
+    #controls {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    #card-info {
+        flex-direction: row;
+    }
+    #btn-create {
+        width: auto;
+    }
+    #start-flashing-btn {
+        min-width: 12rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    #link-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    #link-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    #screen-title {
+        display: flex;
+    }
+    #set-name-input {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #link-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }

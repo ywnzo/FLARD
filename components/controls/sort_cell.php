@@ -1,5 +1,8 @@
 <div class="row" style="width: auto;">
-    <input id="search-bar" type="text" placeholder="Search...">
+    <div class="row" style="gap: 0px;">
+        <i id="search-icon" class="fa fa-search" aria-hidden="true"></i>
+        <input id="search-bar" type="text">
+    </div>
     <div>
         <div class="row">
             <select name="sort" id="sort-select" title="Sort...">

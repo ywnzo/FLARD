@@ -31,38 +31,39 @@ $textFront = $card['textFront'];
             <div class="row">
                 <a href="cards.php?set=<?php echo $card['setID'] ?>" class="btn-back">&larr;</a>
                 <div class="row">
-                    <h1>Card:</h1>
-                    <h1 style="color: var(--btn-main);"><?php echo $card['textFront'] ?></h1>
+                    <h1 id="screen-title">Card:</h1>
+                    <h1 style="color: var(--btn-main); width: 100%; text-wrap: nowrap"><?php echo $card['textFront'] ?></h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="row spacer-row">
-                    <div style="display: flex; gap: 2rem;">
-                        <?php include('components/controls/author.php') ?>
-                        <div class="row" style="width: auto; font-size: larger; gap: 8px;">
-                            <i class="fa fa-archive" aria-hidden="true"></i>
-                            <p><?php echo $set['name'] ?></p>
-                        </div>
-                        <?php include('components/controls/created_at.php') ?>
+            <div class="row" style="justify-content: end;">
+                <div id="info">
+                    <div class="row" style="width: auto; font-size: x-large; gap: 8px;">
+                        <i class="fa fa-archive" aria-hidden="true"></i>
+                        <p><?php echo $set['name'] ?></p>
                     </div>
+                    <?php include('components/controls/author.php') ?>
                 </div>
                 <button class="btn-main-invert" id="btn-delete"><i class="fa fa-trash" aria-hidden="true"> </i></button>
             </div>
         </div>
 
         <div class="column" style="align-items: center; gap: 0.5rem;">
-            <input style="width: 98%;" type="text" id="card-edit-front-input" placeholder="Enter front text" value="<?php echo $textFront ?>">
-            <input style="width: 98%;" type="text" id="card-edit-back-input" placeholder="Enter rear text" value="<?php echo $card['textBack'] ?>">
+            <div class="input-wrapper">
+                <input style="width: 100%;" type="text" id="card-edit-front-input" placeholder="Enter front text" value="<?php echo $textFront ?>">
+            </div>
+            <div class="input-wrapper">
+                <input style="width: 100%;" type="text" id="card-edit-back-input" placeholder="Enter rear text" value="<?php echo $card['textBack'] ?>">
+            </div>
         </div>
 
         <div id="flash-wrapper">
             <div class="card-wrapper" style="display: flex;">
                 <div class="card">
                     <div class="card-front-edit">
-                        <p class="card-front-p"></p>
+                        <p class=" card-text card-front-p"></p>
                     </div>
                     <div class="card-back-edit">
-                        <p class="card-back-p"></p>
+                        <p class=" card-text card-back-p"></p>
                     </div>
                 </div>
             </div>

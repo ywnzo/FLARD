@@ -1,43 +1,48 @@
 <?php
 
-include('classes/url_shortener.php');
+include "classes/url_shortener.php";
 
-$error = '';
+$error = "";
 
-if(isset($_POST['set-name'])) {
-    $setID = uniqid(''. true);
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-    $host = $_SERVER['HTTP_HOST'];
-    $requestUri = $_SERVER['REQUEST_URI'];
-    $currentUrl = 'http://localhost/flard/cards.php?set=' . $setID;
+if (isset($_POST["set-name"])) {
+    $setID = uniqid("" . true);
+    $protocol =
+        (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ||
+        $_SERVER["SERVER_PORT"] == 443
+            ? "https://"
+            : "http://";
+    $host = $_SERVER["HTTP_HOST"];
+    $requestUri = $_SERVER["REQUEST_URI"];
+    $currentUrl = "http://localhost/flard/cards.php?set=" . $setID;
     $url = USHORT::shorten($currentUrl);
 
-    $setName = $_POST['set-name'];
-    $result = DB::insert('cardSets', 'ID, userID, name, urlShort', "'$setID', '$userID', '$setName', '$url'");
-    if(!$result) {
-        $error = 'Unable to create card set!';
+    $setName = $_POST["set-name"];
+    $result = DB::insert(
+        "cardSets",
+        "ID, userID, name, urlShort",
+        "'$setID', '$userID', '$setName', '$url'"
+    );
+    if (!$result) {
+        $error = "Unable to create card set!";
     }
 }
 
 $array = [];
-$table = 'cardSets';
+$table = "cardSets";
 $id = "userID = '$userID'";
-$orderText = 'name';
+$orderText = "name";
 
-$savedSets = $user['savedSets'];
-$savedSets = !isset($savedSets) || !is_array($savedSets) ? [] : json_decode($savedSets);
-foreach($savedSets as $set) {
-    $set = DB::select('*', 'cardSets', "ID = '$set'");
-    $array[] = $set;
+include "components/sort.php";
+include "components/get_saved_sets.php";
+$arr = get_saved_sets();
+if(is_array($arr) && is_array($array)) {
+    $array = array_merge($array, $arr);
 }
-
-include('components/sort.php');
-
 ?>
 
 <div class="row spacer-row">
     <button class="btn-main" id="del-multi-btn" title="Delete multiple..."> <i class="fa fa-minus-square" aria-hidden="true"></i> </button>
-    <?php include('components/controls/sort_cell.php') ?>
+    <?php include "components/controls/sort_cell.php"; ?>
 </div>
 
 <div class="row spacer-row" style="width: 100%">
@@ -49,18 +54,30 @@ include('components/sort.php');
     </form>
 </div>
 
-<?php if(is_array($array) && Utils::has_string_keys($array)) { $item = $array; $array = [$item]; } ?>
+<?php if (is_array($array) && Utils::has_string_keys($array)) {
+    $array = [$array];
+} ?>
 <div class="list-wrapper">
-    <div id="set-list">
-        <?php if(empty($array)): ?>
+    <div id="link-list">
+        <?php if (empty($array)): ?>
             <p>No card sets here! Create some to start learning...</p>
         <?php else: ?>
-            <?php foreach($array as $set): ?>
-                <div class="row link-wrapper">
-                    <a href="cards.php?set=<?php echo $set['ID'] ?>" class="link"><?php echo $set['name'] ?></a>
-                </div>
-            <?php endforeach ?>
-        <?php endif ?>
+            <?php foreach ($array as $set): ?>
+                <?php if (is_array($arr) && is_saved($set["ID"], $arr)): ?>
+                    <div class="row link-wrapper">
+                        <a href="cards.php?set=<?php echo $set[
+                            "ID"
+                        ]; ?>" class="link"><?php echo $set["name"]; ?></a>
+                    </div>
+                <?php else: ?>
+                    <div class="row link-wrapper-own">
+                        <a href="cards.php?set=<?php echo $set[
+                            "ID"
+                        ]; ?>" class="link"><?php echo $set["name"]; ?></a>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </div>
 
