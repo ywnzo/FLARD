@@ -12,7 +12,7 @@ function test_input($input) {
 
 function create_user($conn, $username, $email, $password) {
     $passwordHashed = crypt($password, "wretchedwealth");
-    $sql = "INSERT INTO users (ID, name, email, password) VALUES (UUID(), '$username', '$email', '$passwordHashed', '$sessionID')";
+    $sql = "INSERT INTO users (ID, name, email, password) VALUES (UUID(), '$username', '$email', '$passwordHashed')";
     if(mysqli_query($conn, $sql)) {
         $sql = "SELECT ID FROM users WHERE email = '$email'";
         $result = mysqli_query($conn, $sql);
@@ -24,9 +24,9 @@ function create_user($conn, $username, $email, $password) {
     }
 }
 
-function send_email($userID, $username, $email) {
+function send_email($username, $email) {
     $subject = 'Account verification!';
-    $txt = 'Hello this is a test account verification: '. $userID;
+    $txt = 'Hello this is a test account verification: '. $username;
     $headers = "From: verification@flard.com" . "\r\n";
     mail($email, $subject, $txt, $headers);
 }

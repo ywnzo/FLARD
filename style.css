@@ -113,6 +113,40 @@ input[type="password"] {
     justify-content: center;
 }
 
+.notification {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 2rem;
+    background-color: var(--accents);
+    border-radius: 8px;
+    color: var(--background-darker);
+    opacity: 0;
+    font-size: x-large;
+    transition: all 0.4s ease-in-out;
+}
+
+.index-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#auth-btn-wrapper {
+    align-items: center;
+    justify-content: center;
+}
+.auth-link {
+    color: var(--btn-main);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+}
+.auth-link:hover {
+    color: var(--accents);
+    text-decoration: underline;
+}
 .btn-main,
 .btn-main-invert {
     all: unset;
@@ -180,7 +214,10 @@ input[type="submit"]:hover {
 }
 
 .btn-main-invert {
-    min-height: 46px;
+    min-height: 38.4px;
+    min-width: 38.4px;
+    max-height: 38.4px;
+    max-width: 38.4px;
     aspect-ratio: 1/1;
     background-color: var(--background-darker);
     color: var(--btn-main);

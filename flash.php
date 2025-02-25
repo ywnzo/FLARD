@@ -15,7 +15,7 @@ $set = DB::select('name', 'cardSets', "ID = '$setID'");
 <div class="site">
     <div class="column content-wrapper">
         <div class="row">
-            <a href="cards.php?set=<?php echo $setID ?>" class="btn-back">&larr;</a>
+            <a href="cards.php?set=<?php echo $setID ?>" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
             <h1>Card Flashing</h1>
         </div>
         <div class="row spacer-row">
@@ -31,10 +31,10 @@ $set = DB::select('name', 'cardSets', "ID = '$setID'");
                 <div class="card-wrapper">
                     <div class="card">
                         <div class="card-front">
-                            <p class="card-front-p"></p>
+                            <p class="card-text card-front-p"></p>
                         </div>
                         <div class="card-back">
-                            <p class="card-back-p"></p>
+                            <p class="card-text card-back-p"></p>
                         </div>
                     </div>
                 </div>
@@ -44,11 +44,11 @@ $set = DB::select('name', 'cardSets', "ID = '$setID'");
         <div class="column" id="flash-column">
             <div class="row" style="align-items: center; justify-content: center;">
                 <div class="btn-control-wrapper" style="justify-content: end;">
-                    <button class="btn-main-invert btn-back" id="btn-backward">&larr;</button>
+                    <button class="btn-main-invert btn-back" id="btn-backward"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 </div>
                 <div class="row center" id="index-btn-wrapper"></div>
                 <div class="btn-control-wrapper">
-                    <button class="btn-main-invert btn-back" id="btn-forward">&rarr;</button>
+                    <button class="btn-main-invert btn-back" id="btn-forward"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>

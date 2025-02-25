@@ -52,6 +52,7 @@ if (isset($_POST["add-link"])) {
         "setID = '$setID' AND userID = '$userID'"
     );
     if (!$exists) {
+        $linkAdded = true;
         DB::insert("savedCardSets", "setID, userID", "'$setID', '$userID'");
     }
 }
@@ -69,7 +70,7 @@ $arr = get_saved_sets();
         <div class="column">
             <div class="spacer-row">
                 <div class="row">
-                    <a href="index.php" class="btn-back">&larr;</a>
+                    <a href="index.php" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <h1 id="screen-title">Card set:</h1>
                     <?php if ($canEdit): ?>
                         <input type="text" id="set-name-input" value="<?php echo $set["name"]; ?>">
@@ -109,10 +110,15 @@ $arr = get_saved_sets();
                 <?php endif; ?>
 
                 <?php if (!$canEdit && !is_saved($set['ID'], $arr)) : ?>
+                    <form method="POST">
                         <button type="submit" class="btn-main btn-controls" title="Add to account..." name="add-link">
                             <i class="fa fa-floppy-o" aria-hidden="true"></i>
                         </button>
                     </form>
+                <?php endif; ?>
+
+                <?php if (isset($linkAdded)): ?>
+                    <p style="text-wrap: nowrap;">Set added succesfully!</p>
                 <?php endif; ?>
             </div>
 
@@ -140,7 +146,7 @@ $arr = get_saved_sets();
         <div class="list-wrapper">
             <div id="link-list">
                 <?php if (empty($array)): ?>
-                    <p style="width: 100%;">No cards here! Create some to start learning...</p>
+                    <p style="text-wrap: nowrap;">No cards here! Create some to start learning...</p>
                 <?php else: ?>
                     <?php foreach ($array as $card): ?>
                         <div class="row link-wrapper-own">

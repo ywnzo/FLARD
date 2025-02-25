@@ -1,8 +1,9 @@
 import { FETCH , GET_PARAMS} from "./utils.js";
+import { create_notification } from "./notification.js";
 
 var params = new URLSearchParams(document.location.search);
 
-var set_name_input = $('#set-name-input');
+var set_name_input = document.querySelector('#set-name-input');
 
 var text_front_input = $('#text-front');
 var text_back_input = $('#text-back');
@@ -11,14 +12,12 @@ var copy_link_btn = $('#copy-link-btn');
 
 var currentTextFront = '';
 
-
 function update_set_name() {
     var formData = new FormData();
     formData.append('method', 'update');
     formData.append('table', 'cardSets');
-    formData.append("vals", "name = " + GET_PARAMS(set_name_input.val()));
+    formData.append("vals", 'name = "' + set_name_input.value + '"');
     formData.append('params', "ID = " + GET_PARAMS(params.get('set')));
-
     FETCH('components/crud.php', formData, () => {});
 }
 
@@ -65,11 +64,12 @@ async function on_text_back_focus() {
 
 function main() {
     if(set_name_input) {
-        set_name_input.change(update_set_name);
+        set_name_input.addEventListener('change', update_set_name);
     }
 
     copy_link_btn.click(function() {
         navigator.clipboard.writeText(copy_link_btn.attr('name'))
+        create_notification('Link copied!');
     })
 
     if(text_back_input) {

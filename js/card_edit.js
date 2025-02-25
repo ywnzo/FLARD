@@ -36,24 +36,26 @@ function delete_card() {
 }
 
 function loadSelectedCard() {
-    cardFrontP.innerHTML = cardFrontEditInput.value;
-    cardBackP.innerHTML = cardBackEditInput.value;
+    if(cardFrontEditInput) {
+      cardFrontEditInput.value = cardFrontP.innerHTML;
+      cardFrontEditInput.addEventListener('keyup', () => {
+          cardFrontP.innerHTML = cardFrontEditInput.value;
+      })
+      cardFrontEditInput.addEventListener('change', () => {
+          update_text('textFront', cardFrontEditInput.value);
+      })
+    }
 
-    cardFrontEditInput.addEventListener('keyup', () => {
-        cardFrontP.innerHTML = cardFrontEditInput.value;
-    })
+    if(cardBackEditInput) {
+      cardBackEditInput.value = cardBackP.innerHTML;
+      cardBackEditInput.addEventListener('keyup', () => {
+          cardBackP.innerHTML = cardBackEditInput.value;
+      })
+      cardBackEditInput.addEventListener('change', () => {
+          update_text('textBack', cardBackEditInput.value);
+      })
+    }
 
-    cardBackEditInput.addEventListener('keyup', () => {
-        cardBackP.innerHTML = cardBackEditInput.value;
-    })
-
-    cardFrontEditInput.addEventListener('change', () => {
-        update_text('textFront', cardFrontEditInput.value);
-    })
-
-    cardBackEditInput.addEventListener('change', () => {
-        update_text('textBack', cardBackEditInput.value);
-    })
 
     $('.card-wrapper').click(flip_card);
 

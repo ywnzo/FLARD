@@ -29,7 +29,7 @@ $textFront = $card['textFront'];
     <div class="column content-wrapper" id="card-edit-wrapper">
         <div class="row spacer-row">
             <div class="row">
-                <a href="cards.php?set=<?php echo $card['setID'] ?>" class="btn-back">&larr;</a>
+                <a href="cards.php?set=<?php echo $card['setID'] ?>" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 <div class="row">
                     <h1 id="screen-title">Card:</h1>
                     <h1 style="color: var(--btn-main); width: 100%; text-wrap: nowrap"><?php echo $card['textFront'] ?></h1>
@@ -47,23 +47,25 @@ $textFront = $card['textFront'];
             </div>
         </div>
 
-        <div class="column" style="align-items: center; gap: 0.5rem;">
-            <div class="input-wrapper">
-                <input style="width: 100%;" type="text" id="card-edit-front-input" placeholder="Enter front text" value="<?php echo $textFront ?>">
+        <?php if($canEdit): ?>
+            <div class="column" style="align-items: center; gap: 0.5rem;">
+                <div class="input-wrapper">
+                    <input style="width: 100%;" type="text" id="card-edit-front-input" placeholder="Enter front text">
+                </div>
+                <div class="input-wrapper">
+                    <input style="width: 100%;" type="text" id="card-edit-back-input" placeholder="Enter rear text">
+                </div>
             </div>
-            <div class="input-wrapper">
-                <input style="width: 100%;" type="text" id="card-edit-back-input" placeholder="Enter rear text" value="<?php echo $card['textBack'] ?>">
-            </div>
-        </div>
+        <?php endif; ?>
 
         <div id="flash-wrapper">
             <div class="card-wrapper" style="display: flex;">
                 <div class="card">
                     <div class="card-front-edit">
-                        <p class=" card-text card-front-p"></p>
+                        <p class=" card-text card-front-p"><?php echo $textFront ?></p>
                     </div>
                     <div class="card-back-edit">
-                        <p class=" card-text card-back-p"></p>
+                        <p class=" card-text card-back-p"><?php echo $card['textBack'] ?></p>
                     </div>
                 </div>
             </div>

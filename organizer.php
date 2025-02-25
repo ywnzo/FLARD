@@ -13,10 +13,10 @@ if (isset($_POST["set-name"])) {
             : "http://";
     $host = $_SERVER["HTTP_HOST"];
     $requestUri = $_SERVER["REQUEST_URI"];
-    $currentUrl = "http://localhost/flard/cards.php?set=" . $setID;
+    $currentUrl = "https://flard.free.nf/cards.php?set=" . $setID;
     $url = USHORT::shorten($currentUrl);
 
-    $setName = $_POST["set-name"];
+    $setName = htmlspecialchars($_POST["set-name"]);
     $result = DB::insert(
         "cardSets",
         "ID, userID, name, urlShort",
@@ -34,8 +34,16 @@ $orderText = "name";
 
 include "components/sort.php";
 include "components/get_saved_sets.php";
+
+if (is_array($array) && Utils::has_string_keys($array)) {
+    $array = [$array];
+}
+
 $arr = get_saved_sets();
-if(is_array($arr) && is_array($array)) {
+if(is_array($arr)) {
+    if(!is_array($array)) {
+        $array = [];
+    }
     $array = array_merge($array, $arr);
 }
 ?>
@@ -54,13 +62,10 @@ if(is_array($arr) && is_array($array)) {
     </form>
 </div>
 
-<?php if (is_array($array) && Utils::has_string_keys($array)) {
-    $array = [$array];
-} ?>
 <div class="list-wrapper">
     <div id="link-list">
         <?php if (empty($array)): ?>
-            <p>No card sets here! Create some to start learning...</p>
+            <p style="text-wrap: nowrap">No card sets here! Create some to start learning...</p>
         <?php else: ?>
             <?php foreach ($array as $set): ?>
                 <?php if (is_array($arr) && is_saved($set["ID"], $arr)): ?>
