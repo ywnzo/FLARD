@@ -48,7 +48,7 @@ a:hover {
 }
 
 form {
-    width: 100%;
+    //width: 100%;
     display: flex;
     gap: 1rem;
 }
@@ -89,12 +89,14 @@ input[type="password"] {
 }
 
 .row {
-    width: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
+.space-between {
+    justify-content: space-between;
+}
 .spacer-row {
     width: 100%;
     display: flex;
@@ -134,8 +136,11 @@ input[type="password"] {
     justify-content: center;
 }
 #auth-btn-wrapper {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
 }
 .auth-link {
     color: var(--btn-main);
@@ -163,7 +168,7 @@ input[type="password"] {
     color: #481620;
     background-color: var(--btn-main);
     user-select: none;
-    transition: all 0.3s ease-in;
+    transition: all 0.1s ease-in;
 }
 .btn-main:hover,
 .btn-main-invert,
@@ -186,7 +191,7 @@ input[type="submit"]:hover {
     color: var(--background-darker);
     border-radius: 8px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
     user-select: none;
 }
 .btn-back:hover {
@@ -262,7 +267,7 @@ input[type="submit"]:hover {
     font-size: larger;
     color: var(--accents);
     transition: all;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in;
 }
 
@@ -274,7 +279,7 @@ input[type="submit"]:hover {
     width: 100%;
     height: 100%;
     transition: all;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in;
 }
 .menu-btn img:hover {
@@ -295,7 +300,7 @@ input[type="submit"]:hover {
     border: 2px solid var(--accents);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
     transition: all;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in;
 }
 .user-image-menu:hover {
@@ -329,7 +334,7 @@ input[type="submit"]:hover {
 #site-logo {
     width: 4rem;
     transition: all;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in;
 }
 #site-title {
@@ -373,8 +378,11 @@ input[type="submit"]:hover {
 }
 
 #screen-title {
+    max-width: calc(100%);
     text-wrap: none;
-    word-wrap: none;
+    word-wrap: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #sort-select {
@@ -388,7 +396,7 @@ input[type="submit"]:hover {
     user-select: none;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
     transition: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.1s;
 }
 #sort-select:hover {
     cursor: pointer;
@@ -407,7 +415,7 @@ input[type="submit"]:hover {
     background-color: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.4);
     transition: all;
-    transition-duration: 300ms;
+    transition-duration: 100ms;
 }
 .list-wrapper::-webkit-scrollbar {
     display: none;
@@ -418,7 +426,7 @@ input[type="submit"]:hover {
     gap: 1rem;
     padding: 1rem;
     border-radius: 16px;
-    transition: all 0.3s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 .link-wrapper,
@@ -432,16 +440,20 @@ input[type="submit"]:hover {
     background-color: #c0c5c1;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
     transition: all;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in;
 }
 .link-wrapper {
-    background-color: green;
+    background-color: var(--background);
+}
+.link-wrapper a {
+    color: var(--accents);
+
 }
 .link-wrapper:hover,
 .link-wrapper-own:hover {
     cursor: pointer;
-    background-color: var(--background);
+    background-color: var(--accents);
 }
 
 .link,
@@ -460,7 +472,7 @@ input[type="submit"]:hover {
     text-wrap: wrap;
     color: var(--background-darker);
     user-select: none;
-    transition: all 0.3s ease-in;
+    transition: all 0.1s ease-in;
 }
 .link:hover {
     color: var(--btn-main);
@@ -492,14 +504,14 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     gap: 16px;
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 #controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 .btn-controls {
     width: 100%;
@@ -510,7 +522,7 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 #btn-create {
     width: 100%;
@@ -558,7 +570,7 @@ input[type="submit"]:hover {
 
 .card-wrapper {
     max-width: 980px;
-    width: 90%;
+    width: 100%;
     aspect-ratio: 16/9;
     height: auto;
     display: none;
@@ -627,14 +639,27 @@ input[type="submit"]:hover {
 #flash-wrapper {
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding: 4rem 0rem;
+    padding: 1rem 1rem;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 16px;
+}
+
+.flash-info-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.flash-title {
+    display: none;
+}
+.flash-set-wrapper {
+    display: none;
 }
 
 #index-btn-wrapper::-webkit-scrollbar {
@@ -666,7 +691,7 @@ input[type="submit"]:hover {
     border-radius: 50%;
     border: 2px solid var(--background-darker);
     transition: all;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in;
     user-select: none;
 }
@@ -736,6 +761,18 @@ input[type="submit"]:hover {
     #info {
         display: none;
     }
+    .card-text {
+        font-size: large;
+    }
+    .flash-info-wrapper {
+        flex-direction: column;
+    }
+    .flash-title {
+        display: flex;
+    }
+    .flash-set-wrapper {
+        display: flex;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -756,9 +793,16 @@ input[type="submit"]:hover {
     #btn-create {
         width: auto;
     }
+    .card-text {
+        font-size: x-large;
+    }
     #start-flashing-btn {
         min-width: 12rem;
     }
+    #auth-btn-wrapper {
+        flex-direction: row;
+    }
+
 }
 
 @media only screen and (min-width: 992px) {
@@ -775,6 +819,7 @@ input[type="submit"]:hover {
     #index-btn-wrapper {
         width: 50%;
     }
+
 }
 
 @media only screen and (min-width: 1200px) {

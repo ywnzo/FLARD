@@ -70,15 +70,11 @@ if(is_array($arr)) {
             <?php foreach ($array as $set): ?>
                 <?php if (is_array($arr) && is_saved($set["ID"], $arr)): ?>
                     <div class="row link-wrapper">
-                        <a href="cards.php?set=<?php echo $set[
-                            "ID"
-                        ]; ?>" class="link"><?php echo $set["name"]; ?></a>
+                        <a href="cards.php?set=<?php echo $set["ID"]; ?>" class="link"><?php echo $set["name"]; ?></a>
                     </div>
                 <?php else: ?>
                     <div class="row link-wrapper-own">
-                        <a href="cards.php?set=<?php echo $set[
-                            "ID"
-                        ]; ?>" class="link"><?php echo $set["name"]; ?></a>
+                        <a href="cards.php?set=<?php echo $set["ID"]; ?>" class="link"><?php echo $set["name"]; ?></a>
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>

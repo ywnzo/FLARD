@@ -104,14 +104,14 @@ async function load_card(index) {
     if(isLoaded) {
         $('.card-wrapper').fadeOut("fast", function() {
             $('#flash-wrapper').remove();
-            $('#flash-column').append(template)
+            $('.content-wrapper').append(template)
             $('.card-wrapper').fadeIn("fast", () => {
                 $('.card-wrapper').click(flip_card);
             })
             load_text(index)
         })
     } else {
-        $('#flash-column').append(template)
+        $('.content-wrapper').append(template)
         $('.card-wrapper').fadeIn("fast")
         $('.card-wrapper').click(flip_card);
         load_text(index)

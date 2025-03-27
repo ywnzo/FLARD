@@ -31,7 +31,6 @@ $textFront = $card['textFront'];
             <div class="row">
                 <a href="cards.php?set=<?php echo $card['setID'] ?>" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 <div class="row">
-                    <h1 id="screen-title">Card:</h1>
                     <h1 style="color: var(--btn-main); width: 100%; text-wrap: nowrap"><?php echo $card['textFront'] ?></h1>
                 </div>
             </div>

@@ -39,8 +39,8 @@ if(isset($_GET['action'])) {
         <?php if(!$authOK): ?>
             <div class="index-wrapper">
                 <a href="index.php"><h1 class="title-main">FLARD</h1></a>
-                <h2 style="margin-bottom: 2rem;">Create, manage and share flash cards...</h2>
-                <div class="row" id="auth-btn-wrapper" style="display: <?php echo isset($_GET['action']) ? 'none' : 'flex'; ?>">
+                <h2 style="margin-bottom: 2rem; text-align: center;">Create, manage and share flash cards...</h2>
+                <div id="auth-btn-wrapper" style="display: <?php echo isset($_GET['action']) ? 'none' : 'flex'; ?>">
                     <button class="btn-main login-btn" style="min-width: 12rem;"">Login</button>
                     <button class="btn-main register-btn" style="min-width: 12rem;">Register</button>
                 </div>

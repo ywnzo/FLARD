@@ -68,10 +68,9 @@ $arr = get_saved_sets();
 <div class="site">
     <div class="column content-wrapper" id="card-set-wrapper">
         <div class="column">
-            <div class="spacer-row">
-                <div class="row">
+            <div class="row space-between">
+                <div class="row" style="width: 100%;">
                     <a href="index.php" class="btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                    <h1 id="screen-title">Card set:</h1>
                     <?php if ($canEdit): ?>
                         <input type="text" id="set-name-input" value="<?php echo $set["name"]; ?>">
                     <?php else: ?>
@@ -83,15 +82,13 @@ $arr = get_saved_sets();
                     <?php include "components/controls/author.php"; ?>
                 </div>
 
-                <div style="display:flex; align-items:center; margin-left: 1rem;">
-                    <?php if ($canEdit): ?>
-                        <form method="post">
-                            <button type="submit" class="btn-main-invert" id="btn-delete" name="delete-set" title="Delete set...">
-                                <i class="fa fa-trash" aria-hidden="true"> </i>
-                            </button>
-                        </form>
-                    <?php endif; ?>
-                </div>
+                <?php if ($canEdit): ?>
+                    <form method="post">
+                        <button type="submit" class="btn-main-invert" id="btn-delete" name="delete-set" title="Delete set...">
+                            <i class="fa fa-trash" aria-hidden="true"> </i>
+                        </button>
+                    </form>
+                <?php endif; ?>
             </div>
         </div>
 
