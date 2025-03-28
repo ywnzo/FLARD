@@ -14,6 +14,7 @@ if(isset($_COOKIE['sessionID'])) {
     }
 }
 if(!$authOK) {
+    $user = null;
     $scriptName = basename($_SERVER['SCRIPT_NAME']);
     if($scriptName != 'index.php' && $scriptName != 'cards.php' && $scriptName != 'flash.php') {
         header('Location: index.php');

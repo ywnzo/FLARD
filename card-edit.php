@@ -7,7 +7,7 @@ if(!isset($_GET['card'])) {
     header('Location: index.php');
 }
 
-$cardID = $_GET['card'];
+$cardID = htmlspecialchars($_GET['card']);
 $card = DB::select('*', 'cards', "ID = '$cardID'");
 $setID = $card['setID'];
 $set = DB::select('*', 'cardSets', "ID = '$setID'");

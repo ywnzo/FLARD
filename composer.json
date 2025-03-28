@@ -1,0 +1,17 @@
+{
+    "name": "yawnz/flard",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Yawnz\\Flard\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ywnz"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.18"
+    }
+}

@@ -9,7 +9,7 @@ if (!isset($_GET["set"])) {
     header("Location: index.php");
 }
 
-$setID = $_GET["set"];
+$setID = htmlspecialchars($_GET["set"]);
 $set = DB::select("*", "cardSets", "ID = '$setID'");
 $setUserID = $set["userID"];
 
@@ -28,9 +28,9 @@ if (isset($_POST["text-front"])) {
 
 if (isset($_POST["delete-set"])) {
     $short = explode("=", $set["urlShort"])[1];
-    DB::delete("cardSets", "ID = '$setID'");
-    DB::delete("urls", "short = '$short'");
-    DB::delete("cards", "setID = '$setID'");
+    DB::delete("cardSets", "ID = '$setID' AND userID = '$userID'");
+    DB::delete("urls", "short = '$short' AND userID = '$userID'");
+    DB::delete("cards", "setID = '$setID' AND userID = '$userID'");
     header("Location: index.php");
 }
 
