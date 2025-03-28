@@ -74,6 +74,3 @@ $textFront = $card['textFront'];
 </div>
 
 <?php include('components/footer.php') ?>
-
-<script src="js/card_flipping.js"></script>
-<script type="module" src="js/card_edit.js"></script>

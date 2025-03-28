@@ -160,9 +160,3 @@ $arr = get_saved_sets();
 </div>
 
 <?php include "components/footer.php"; ?>
-
-<script src="js/definitions.js"></script>
-<script type="module" src="js/cards.js"> </script>
-<script src="js/sort.js"></script>
-<script type="module" src="js/delete_multiple.js"></script>
-<script src="js/search.js"></script>

@@ -21,8 +21,10 @@ function search() {
 }
 
 function main() {
+  if(searchBar) {
     searchBar.addEventListener('keyup', function() {
         search();
     })
+  }
 }
 main();

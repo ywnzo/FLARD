@@ -81,7 +81,3 @@ if(is_array($arr)) {
         <?php endif; ?>
     </div>
 </div>
-
-<script src="js/sort.js"></script>
-<script type="module" src="js/delete_multiple.js"></script>
-<script src="js/search.js"></script>

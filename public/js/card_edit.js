@@ -36,32 +36,34 @@ function delete_card() {
 }
 
 function loadSelectedCard() {
-    if(cardFrontEditInput) {
-      cardFrontEditInput.value = cardFrontP.innerHTML;
-      cardFrontEditInput.addEventListener('keyup', () => {
-          cardFrontP.innerHTML = cardFrontEditInput.value;
-      })
-      cardFrontEditInput.addEventListener('change', () => {
-          update_text('textFront', cardFrontEditInput.value);
-      })
-    }
-
-    if(cardBackEditInput) {
-      cardBackEditInput.value = cardBackP.innerHTML;
-      cardBackEditInput.addEventListener('keyup', () => {
-          cardBackP.innerHTML = cardBackEditInput.value;
-      })
-      cardBackEditInput.addEventListener('change', () => {
-          update_text('textBack', cardBackEditInput.value);
-      })
-    }
-
-
-    $('.card-wrapper').click(flip_card);
-
-    btn_delete.addEventListener('click', () => {
-        delete_card();
+  if(cardFrontEditInput) {
+    cardFrontEditInput.value = cardFrontP.innerHTML;
+    cardFrontEditInput.addEventListener('keyup', () => {
+        cardFrontP.innerHTML = cardFrontEditInput.value;
     })
+    cardFrontEditInput.addEventListener('change', () => {
+        update_text('textFront', cardFrontEditInput.value);
+    })
+  }
+
+  if(cardBackEditInput) {
+    cardBackEditInput.value = cardBackP.innerHTML;
+    cardBackEditInput.addEventListener('keyup', () => {
+        cardBackP.innerHTML = cardBackEditInput.value;
+    })
+    cardBackEditInput.addEventListener('change', () => {
+        update_text('textBack', cardBackEditInput.value);
+    })
+  }
+
+
+  $('.card-wrapper').click(flip_card);
+
+  if (btn_delete) {
+    btn_delete.addEventListener('click', () => {
+      delete_card();
+    })
+  }
 }
 
 function main() {

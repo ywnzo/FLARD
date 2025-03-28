@@ -57,6 +57,3 @@ $set = DB::select('name', 'cardSets', "ID = '$setID'");
 </div>
 
 <?php include('components/footer.php') ?>
-
-<script src="js/card_flipping.js"></script>
-<script type="module" src="js/flash.js"></script>

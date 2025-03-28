@@ -152,4 +152,6 @@ async function main() {
     })
 }
 
-main();
+if(window.location.href.includes('flash.php')) {
+  main();
+}

@@ -68,5 +68,3 @@ if(isset($_GET['action'])) {
 </div>
 
 <?php include('components/footer.php') ?>
-
-<script src="js/index.js"></script>
