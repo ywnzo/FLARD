@@ -1,26 +1,14 @@
 <?php
 
-include "classes/url_shortener.php";
-
 $error = "";
 
 if (isset($_POST["set-name"])) {
     $setID = uniqid("" . true);
-    $protocol =
-        (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ||
-        $_SERVER["SERVER_PORT"] == 443
-            ? "https://"
-            : "http://";
-    $host = $_SERVER["HTTP_HOST"];
-    $requestUri = $_SERVER["REQUEST_URI"];
-    $currentUrl = "https://flard.free.nf/cards.php?set=" . $setID;
-    $url = USHORT::shorten($currentUrl);
-
     $setName = htmlspecialchars($_POST["set-name"]);
     $result = DB::insert(
         "cardSets",
-        "ID, userID, name, urlShort",
-        "'$setID', '$userID', '$setName', '$url'"
+        "ID, userID, name",
+        "'$setID', '$userID', '$setName'"
     );
     if (!$result) {
         $error = "Unable to create card set!";
@@ -40,12 +28,10 @@ if (is_array($array) && Utils::has_string_keys($array)) {
 }
 
 $arr = get_saved_sets();
-if(is_array($arr)) {
-    if(!is_array($array)) {
-        $array = [];
-    }
-    $array = array_merge($array, $arr);
-}
+$arr = is_array($arr) ? $arr : [];
+$array = is_array($array) ? $array : [];
+$array = array_merge($array, $arr);
+
 ?>
 
 <div class="row spacer-row">
@@ -64,9 +50,10 @@ if(is_array($arr)) {
 
 <div class="list-wrapper">
     <div id="link-list">
-        <?php if (empty($array)): ?>
+        <?php if (empty($array[0]) && empty($array[1])): ?>
             <p style="text-wrap: nowrap">No card sets here! Create some to start learning...</p>
         <?php else: ?>
+
             <?php foreach ($array as $set): ?>
                 <?php if (is_array($arr) && is_saved($set["ID"], $arr)): ?>
                     <div class="row link-wrapper">
@@ -78,6 +65,7 @@ if(is_array($arr)) {
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
+
         <?php endif; ?>
     </div>
 </div>

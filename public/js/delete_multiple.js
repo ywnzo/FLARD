@@ -46,12 +46,13 @@ function delete_link(e) {
   var params = new URLSearchParams(urlObj.search);
   var setID = params.get("set");
   var cardID = params.get("card");
+  var userID = GET_COOKIE("userID");
 
   var table = window.location.href.includes("cards") ? "cards" : "cardSets";
   if (table === "cards") {
-    var params = "ID = '" + cardID + "' AND " + " setID = '" + setID + "'";
+    var params = "ID = '" + cardID + "' AND setID = '" + setID + "' AND userID = '" + userID + "'";
   } else {
-    var params = "ID = '" + setID + "'";
+    var params = "ID = '" + setID + "' AND userID = '" + userID + "'";
   }
 
   var formData = new FormData();

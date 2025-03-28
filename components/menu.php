@@ -35,7 +35,6 @@ $pageName = ucfirst($pageName);
     <title>FLARD - <?php echo $pageName; ?></title>
 </head>
 
-<!-- Google tag (gtag.js) -->
 <?php include 'components/google_analytics.php'; ?>
 
 <body>

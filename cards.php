@@ -99,9 +99,9 @@ $arr = get_saved_sets();
                 <?php if (!empty($array)): ?>
                     <a href="flash.php?set=<?php echo $setID; ?>" title="Start flashing!" class="btn-main btn-controls" id="start-flashing-btn""> <i class="fa fa-bolt" aria-hidden="true"></i></a>
                 <?php endif; ?>
-                <button class="btn-main btn-controls" id="copy-link-btn" title="Copy link..." name="<?php echo $set[
-                    "urlShort"
-                ]; ?>"> <i class="fa fa-link" aria-hidden="true"></i> </button>
+                <button class="btn-main btn-controls" id="copy-link-btn" title="Copy link...">
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                </button>
                 <?php if ($canEdit): ?>
                     <button class="btn-main btn-controls" id="del-multi-btn" title="Delete multiple..."> <i class="fa fa-minus-square" aria-hidden="true"></i> </button>
                 <?php endif; ?>

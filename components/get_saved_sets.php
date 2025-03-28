@@ -14,7 +14,9 @@
             foreach ($savedSets as $set) {
                 $sid = $set["setID"];
                 $set = DB::select("*", "cardSets", "ID = '$sid'");
-                $arr[] = $set;
+                if(isset($set['ID']) && $set['ID'] == $sid) {
+                    $arr[] = $set;
+                }
             }
         }
         return $arr;

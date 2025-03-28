@@ -68,7 +68,7 @@ function main() {
     }
 
     copy_link_btn.click(function() {
-      navigator.clipboard.writeText(copy_link_btn.attr('name'))
+      navigator.clipboard.writeText(window.location.href);
       create_notification('Link copied!');
     })
 
