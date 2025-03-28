@@ -30,7 +30,6 @@ async function get_cards() {
     formData.append('params', "setID = " + GET_PARAMS(params.get('set')));
     cards = await FETCH('components/crud.php', formData, () => { });
     cards = JSON.parse(cards);
-    console.log(cards)
 
     if(Array.isArray(cards)) {
         cards = shuffle();

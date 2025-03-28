@@ -20,7 +20,7 @@ if(!$authOK) {
 $displayLogin = 'none';
 $displayRegister = 'none';
 if(isset($_GET['action'])) {
-    $action = $_GET['action'];
+    $action = $_GET['action'] != 'register' && $_GET['action'] != 'login' ? 'login' : $_GET['action'];
     if($action === 'login') {
         $displayLogin = 'flex';
         $displayRegister = 'none';

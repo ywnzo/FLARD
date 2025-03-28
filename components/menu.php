@@ -1,6 +1,13 @@
 <?php
 $cssFile = 'public/css/style.css';
 $cssVersion = filemtime($cssFile);
+
+$pageName = basename($_SERVER['SCRIPT_NAME']);
+$pageName = explode('.', $pageName)[0];
+$pageName = str_replace(' ', '_', $pageName);
+$pageName = str_replace(' ', '-', $pageName);
+$pageName = ucfirst($pageName);
+
 ?>
 
 <!DOCTYPE html>
@@ -25,16 +32,12 @@ $cssVersion = filemtime($cssFile);
     <script type="module" src="public/js/delete_multiple.js" defer></script>
     <script src="public/js/search.js" defer></script>
 
-    <title>FLARD <?php echo isset($user) ? '- ' . $user['name'] : ''; ?></title>
+    <title>FLARD - <?php echo $pageName; ?></title>
 </head>
 <body>
-
-<script>'.'</script>
 
 <div class="menu">
     <a class="column" id="site-logo-wrapper" href="index.php">
         <img id="site-logo" src="public/img/logo.svg" alt="">
     </a>
-    <div class="column">
-    </div>
 </div>
