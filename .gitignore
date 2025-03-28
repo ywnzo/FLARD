@@ -1,3 +1,6 @@
 /config/db_connect.php
-
+/config/credentials.json
+/config/config.ini
+/config/config_hosting.ini
+/components/google_analytics.php
 /vendor/
